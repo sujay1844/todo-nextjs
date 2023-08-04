@@ -1,28 +1,29 @@
 import Link from 'next/link';
 import { prisma } from '../db';
+import { getTasks, deleteTask, checkTask } from './tasks.server';
 import { Task } from '../components/Task';
 
-async function getTasks() {
-  "use server";
-  return prisma.task.findMany();
-}
+// async function getTasks() {
+//   "use server";
+//   return prisma.task.findMany();
+// }
 
-async function deleteTask(id: string) {
-	"use server";
-	await prisma.task.delete({
-		where: {
-			id
-		}
-	});
-}
+// async function deleteTask(id: string) {
+// 	"use server";
+// 	await prisma.task.delete({
+// 		where: {
+// 			id
+// 		}
+// 	});
+// }
 
-async function checkTask(id: string, completed: boolean) {
-  "use server";
-  await prisma.task.update({
-    where: { id },
-    data: { "completed": !completed }
-  });
-}
+// async function checkTask(id: string, completed: boolean) {
+//   "use server";
+//   await prisma.task.update({
+//     where: { id },
+//     data: { "completed": !completed }
+//   });
+// }
 
 export default async function Home() {
 
