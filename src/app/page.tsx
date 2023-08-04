@@ -7,7 +7,7 @@ async function getTasks() {
   return prisma.task.findMany();
 }
 
-async function deleteTask(id) {
+async function deleteTask(id: string) {
 	"use server";
 	await prisma.task.delete({
 		where: {
@@ -16,7 +16,7 @@ async function deleteTask(id) {
 	});
 }
 
-async function checkTask(id, completed) {
+async function checkTask(id: string, completed: boolean) {
   "use server";
   await prisma.task.update({
     where: { id },
