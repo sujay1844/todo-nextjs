@@ -2,7 +2,8 @@ import Link from 'next/link';
 import { prisma } from '../db';
 import { Task } from '../components/Task';
 
-function getTasks() {
+async function getTasks() {
+  "use server";
   return prisma.task.findMany();
 }
 
